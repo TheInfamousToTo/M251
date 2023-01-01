@@ -1,0 +1,83 @@
+package MOCK_MTA;
+
+public class Purchase{
+    public static void main(String[] args) {
+        Sale sale1=new Sale("apple", 5);
+        sale1.toString(5);
+        System.out.println(sale1.Bill());
+        DiscountSale sale2=new DiscountSale("apple", 5, 50);
+        System.out.println(sale2.bill());
+
+    }
+        }
+class Sale {
+
+    String item;
+    int price;
+
+    Sale(String item, int price) {
+        System.out.println("item = " + item );
+        System.out.println("price =" + price);
+
+        //System.out.println(toString());
+
+    }
+
+    int Bill() {
+        return price ;
+    }
+
+    public void setItem(String item) {
+        this.item = item;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getItem() {
+
+        return this.item;
+    }
+    public int getPrice() {
+
+        return this.price;
+    }
+
+    public void toString(int price) {
+        //this.price=toString(price);
+    }
+}
+class DiscountSale extends Sale {
+    String item;
+    int price;
+    int Discount ;
+    double netPrice;
+
+
+    DiscountSale(String item, int price, int Discount) {
+
+        super(item, price);
+        System.out.println("item = " + item );
+        System.out.println("price =" + price);
+        System.out.println("Discount =" + Discount+"%");
+        netPrice=(1-Discount/100)*price;
+        System.out.println("net price = "+netPrice);
+
+
+
+    }
+    public void setDiscount(int Discount) {
+        this.Discount = Discount;
+    }
+    public int getDiscount() {
+
+        return this.Discount;
+    }
+
+    public String bill() {
+        return null;
+    }
+}
+
+

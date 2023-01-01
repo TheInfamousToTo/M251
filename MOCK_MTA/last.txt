@@ -1,0 +1,72 @@
+package MOCK_MTA;
+
+import java.util.Objects;
+
+public class last {
+    public static void main(String[] args) {
+        sale item1= new sale();
+        sale item2= new sale("apple");
+        sale item3= new sale("cat");
+        System.out.println("the item: " + item1.getItem() + " price is : "+item1.bill()+" Discount is :"+ item1.bill());
+        System.out.println("the item: " + item2.getItem() + " price is : "+item2.bill()+" Discount is :"+ item2.bill());
+        System.out.println("the item: " + item3.getItem() + " price is : "+item3.bill()+" Discount is :"+ item3.bill());
+
+
+    }
+
+}
+class sale{
+    String item;
+    Double price;
+    sale(){price=0.0;}
+    sale(String item){
+        if (Objects.equals(item, "apple"))
+                price = 5.0;
+        else if (Objects.equals(item, "cat"))
+                price = 25.0;}
+    //A function bill() that returns the price for that item with no added discounts or charges
+    public Double bill(){
+        return price;
+    }
+    //The accessor functions for all data fields
+    public String getItem() {
+        return item;
+    }
+    public Double getPrice() {
+        return price;
+    }
+    //The mutator functions for all data fields
+    public void setItem(String item) {
+        this.item = item;
+    }
+    public void setPrice(Double price) {
+        this.price = price;
+    }   
+    //Override toString() to represent the sale object as a string.
+    public String toString(){
+        return "Item: "+item+" Price: "+price;
+    }
+
+}
+class DiscountSale extends sale{
+    double Discount;
+    DiscountSale(String item, double Discount){
+        Discount= 50.0;}
+    //public void setDiscount(double Discount){
+    //    Discount=Discount;
+
+    //}
+   // public double getDiscount(){
+    //    return Discount;
+    //}
+    //@Override
+
+//A overridden function bill() that returns the net price for that DiscountSale objecta funcion that returns the discount
+    @Override
+    double bill(){
+        return price-Discount;
+    }   
+}
+    /*double bill(){
+        return Discount;}
+    }*/

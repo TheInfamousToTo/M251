@@ -1,0 +1,56 @@
+package MOCK_MTA;
+
+import java.util.Objects;
+import java.util.Scanner;
+
+public class Sales {
+    public static void main(String[] args) {
+        // double bill(){return price;}
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the item name & price ");
+        Sales mySales = new Sales("apple", 5);
+        System.out.println(mySales.getbill("apple"));
+        Complex c1 = new Complex("apple", 5);
+        System.out.println(c1);
+    }
+
+    String item;
+    String price;
+
+    public String getItem() {
+
+        return this.item;
+    }
+
+    /*public void setItem(String item){
+
+        this.item = item;
+    }*/
+    //public Sales(String item, double price) {
+     //   getbill(String.valueOf(price));
+
+    //}
+
+    /*public String getPrice(){
+        return this.price;
+    }*/
+    /*public void setPrice(String price){
+        this.price=getbill(price);
+    }
+    String getbill(String item){return price;}
+}*/
+    class Complex {
+        private String item;
+        private double price;
+
+        public Complex(String item, double price) {
+            this.item = item;
+            this.price = price;
+        }
+
+        @Override
+        public String toString() {
+            return this.item + " + " + this.price;
+        }
+    }
+}
